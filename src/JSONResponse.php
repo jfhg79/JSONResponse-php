@@ -35,7 +35,7 @@ class JSONResponse {
 	/*
 	 * String
 	 */
-	private $string_response_out;
+	private $string_response_out = "";
 	
 	/*
 	 * String
@@ -98,7 +98,9 @@ class JSONResponse {
 	 * @return String JSON
 	 */
 	public function getStringResponseOut(){
-		$this->string_response_out = json_encode( $this->object_response_out );
+		if( is_object( $this->object_response_out ) ){
+			$this->string_response_out = json_encode( $this->object_response_out );
+			}
 		return $this->string_response_out;
 		}
 	
